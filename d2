@@ -1,0 +1,54 @@
+#rock paper scissors game
+import sys
+import random
+a=input("Choose mode: Multiplayer [M] or Artificial Intelligence [AI] ")
+if(a== "AI"):
+   choices = ["rock", "paper", "scissors"]
+   ch1= input("Enter your choice\n")
+   ch2= random.choice(choices)
+   print("Computer's choice: " +ch2)
+   if(ch1==ch2):
+      print("Match Tied- Retry")
+      sys.exit()
+   elif((ch1=="paper" and ch2=="rock") or (ch1=="scissors" and ch2=="paper") or (ch1=="rock" and ch2=="scissors")):
+      print("The Winner: \nYou")
+   else:
+      print("The Winner: \nComputer")
+elif(a== "M"):    
+    b= int(input("Enter number of players [2-5]"))
+    lst = []
+    x=0 
+    y=0 
+    z=0
+    for i in range(b):
+      print(f"Player {i+1}")
+      c= str(input("Enter your choice: "))
+      lst.append(c)
+      if(lst[i]=="rock"):
+          x=1
+      if(lst[i]=="paper"):
+          y=1
+      if(lst[i]=="scissors"):
+          z=1  
+    if(x>0 and y>0 and z>0): #when all options are taken by players
+      print("Match Tied- Retry")
+      sys.exit()
+    for i in range(0,b):
+       if(x==0):                 #paper vs scissors
+          print("The Winner: ")
+          for i in range(b):
+             if(lst[i]=="scissors"):
+               print(f"Player {i+1}")
+          sys.exit()
+       if(y==0):                 #rock vs scissors
+          print("The Winner: ")
+          for i in range(b):
+             if(lst[i]=="rock"):
+               print(f"Player {i+1}")
+          sys.exit()
+       if(z==0):                 #rock vs paper
+          print("The Winner: ")
+          for i in range(b):
+             if(lst[i]=="paper"):
+               print(f"Player {i+1}")
+       sys.exit()       
