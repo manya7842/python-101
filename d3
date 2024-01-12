@@ -1,0 +1,15 @@
+#random password generator
+import random
+a= int(input("Number of minimum characters:\n"))
+b= input("Any favourite characters you want in your password. If N/A, enter blank space.\n")
+A = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'X', 'Y', 'Z']
+B= [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+w = b
+if(a%3 == 1):
+    a= a+2
+elif(a%3 == 2):
+    a= a+1
+for i in range(a//3):
+    w += random.choice(A) + random.choice(A).lower() + str(random.choice(B))
+print("Password as required is: \n")
+print(w.strip())
